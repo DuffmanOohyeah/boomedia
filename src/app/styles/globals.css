@@ -1,0 +1,238 @@
+@import 'tailwindcss';
+
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: black;
+	color: white;
+}
+
+#homeBg::before {
+	/*padding-bottom: 20px;*/
+	background-image: url('/fiddlers2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.5;
+	position: absolute;
+	top: -20px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: '';
+}
+
+#homeBg {
+	position: relative;
+	min-height: 100vh;
+	height: 100%;
+}
+
+div.pageCard {
+	width: 50%;
+	margin: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	transform: translate(0, 0);
+}
+
+#gigBg::before {
+	/*padding-bottom: 20px;*/
+	background-image: url('/billy1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.5;
+	position: absolute;
+	top: -20px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: '';
+}
+
+#gigBg {
+	position: relative;
+	min-height: 100vh;
+	height: 100%;
+}
+
+#musicBg::before {
+	/*padding-bottom: 20px;*/
+	background-image: url('/gear.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.5;
+	position: absolute;
+	top: -20px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: '';
+}
+
+#musicBg {
+	position: relative;
+	min-height: 100vh;
+	height: 100%;
+}
+
+#socialsBg::before {
+	/*padding-bottom: 20px;*/
+	background-image: url('/cheers1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.5;
+	position: absolute;
+	top: -20px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: '';
+}
+
+#socialsBg {
+	position: relative;
+	min-height: 100vh;
+	height: 100%;
+}
+
+#picsBg:before {
+	/*padding-bottom: 20px;*/
+	background-image: url('/eddie.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.5;
+	position: absolute;
+	top: -750px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: '';
+}
+
+#picsBg {
+	position: relative;
+	min-height: 100vh;
+	height: 100%;
+}
+
+h1 {
+	color: rgba(255, 185, 19, 0.75);
+	font-size: 1.75rem;
+}
+
+h2 {
+	padding-top: 20px;
+	color: rgba(255, 185, 19, 0.5);
+	font-size: 1.5rem;
+}
+
+ul.gigsUl,
+ul.testimonialsUl,
+ul.musicUl,
+ul.socialsUl {
+	padding-left: 20px;
+	list-style-type: none;
+}
+
+li a.link,
+div a.link {
+	color: rgba(255, 185, 19, 0.75);
+}
+
+nav a:hover {
+	color: rgba(255, 185, 19, 0.5);
+}
+
+nav a.link {
+	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+	color: rgba(255, 185, 19, 0.75);
+	text-decoration: none;
+	padding: 0px 5px 0px 5px;
+}
+
+nav a.link:hover {
+	color: rgba(255, 185, 19, 0.5);
+}
+
+/*div.testimonialThx {
+	padding: 25px 100px 0px 100px;
+}
+
+div.testimonialThx a.link {
+	color: rgba(255, 185, 19, 0.75);
+}*/
+
+div#testimonialBg::before {
+	/*padding-bottom: 20px;*/
+	background-image: url('/mr_cool.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.5;
+	position: absolute;
+	top: -50px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: '';
+}
+
+div#testimonialBg {
+	position: relative;
+	min-height: 100vh;
+	height: 100%;
+}
+
+/*div.thanks {
+	text-align: right;
+	padding-top: 50px;
+	width: 50%;
+	margin-left: auto;
+}*/
+
+div#contactBg::before {
+	/*padding-bottom: 20px;*/
+	background-image: url('/contact1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.5;
+	position: absolute;
+	top: -20px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: '';
+}
+
+div#contactBg {
+	position: relative;
+	min-height: 100vh;
+	height: 100%;
+}
