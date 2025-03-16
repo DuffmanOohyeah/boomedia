@@ -1,6 +1,6 @@
 'use client';
 import { JSX } from 'react';
-import Header from '../components/Header';
+import Header from '@/components/Header';
 import {
 	FaCocktail,
 	FaYoutube,
@@ -9,7 +9,9 @@ import {
 	FaFacebook,
 	FaSpotify,
 } from 'react-icons/fa';
-import { SocialCssProps } from '../utils/types';
+import { SocialCssProps, SocialHubProps } from '@/utils/types';
+import CountUp from 'react-countup';
+import Link from 'next/link';
 
 const css: SocialCssProps = {
 	svg: 'inline w-7 h-7 align-middle',
@@ -17,73 +19,72 @@ const css: SocialCssProps = {
 	h1Svg: 'align-middle inline-block mr-[7px]',
 };
 
+const getSocialHubs = (): SocialHubProps[] => {
+	const rtnArr: SocialHubProps[] = [
+		{
+			svg: <FaFacebook className={css.svg} />,
+			href: 'https://www.facebook.com/cruisertherockband',
+			label: 'Facebook',
+		},
+		{
+			svg: <FaBandcamp className={css.svg} />,
+			href: 'https://cruisertherockband.bandcamp.com',
+			label: 'Bandcamp',
+		},
+		{
+			svg: <FaInstagram className={css.svg} />,
+			href: 'https://www.instagram.com/cruisertherockband',
+			label: 'Instagram',
+		},
+		{
+			svg: <FaYoutube className={css.svg} />,
+			href: 'https://www.youtube.com/@cruisertherockband8830',
+			label: 'YouTube',
+		},
+		{
+			svg: <FaSpotify className={css.svg} />,
+			href: 'https://open.spotify.com/artist/5zYwADqi0cJ5B1f36y8kAB',
+			label: 'Spotify',
+		},
+	];
+	return rtnArr;
+};
+
 const Socials = (): JSX.Element => {
+	const getHubs = getSocialHubs();
+
 	return (
 		<div id='socialsBg'>
 			<Header />
-			<div className='pageCard'>
+			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
 					<FaCocktail className={css.h1Svg} /> Socials :: Yes, we`re
 					hip
 				</h1>
 				<br />
-				Feel free to check out some of our tunes.
+				Feel free to check out some of our social
+				hubs.&nbsp;&nbsp;&nbsp;
+				<CountUp
+					end={getHubs.length}
+					duration={5}
+					className={`rounded-[50%] border-[1px] p-[10px] m-[10px]`}
+				/>
 				<ul className='socialsUl'>
-					<li className={css.li}>
-						<FaFacebook className={css.svg} />
-						&nbsp;
-						<a
-							href='https://www.facebook.com/cruisertherockband'
-							target='_blank'
-							className='link'
-						>
-							Facebook
-						</a>
-					</li>
-					<li className={css.li}>
-						<FaBandcamp className={css.svg} />
-						&nbsp;
-						<a
-							href='https://cruisertherockband.bandcamp.com'
-							target='_blank'
-							className='link'
-						>
-							Bandcamp
-						</a>
-					</li>
-					<li className={css.li}>
-						<FaInstagram className={css.svg} />
-						&nbsp;
-						<a
-							href='https://www.instagram.com/cruisertherockband'
-							target='_blank'
-							className='link'
-						>
-							Instagram
-						</a>
-					</li>
-					<li className={css.li}>
-						<FaYoutube className={css.svg} />
-						&nbsp;
-						<a
-							href='https://www.youtube.com/@cruisertherockband8830'
-							target='_blank'
-							className='link'
-						>
-							YouTube
-						</a>
-					</li>
-					<li className={css.li}>
-						<FaSpotify className={css.svg} />
-						&nbsp;
-						<a
-							href='https://open.spotify.com/artist/5zYwADqi0cJ5B1f36y8kAB'
-							target='_blank'
-							className='link'
-						>
-							Spotify
-						</a>
-					</li>
+					{getHubs.map((obj, idx) => {
+						const { svg, href, label } = obj;
+						return (
+							<li className={css.li} key={idx}>
+								{svg}&nbsp;
+								<Link
+									href={href}
+									target='_blank'
+									className='link'
+								>
+									{label}
+								</Link>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		</div>

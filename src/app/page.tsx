@@ -1,7 +1,7 @@
 import { JSX } from 'react';
-import Header from './components/Header';
-import { HomeCssProps } from './utils/types';
 import Image from 'next/image';
+import Header from '@/components/Header';
+import { HomeCssProps } from '@/utils/types';
 
 const css: HomeCssProps = {
 	logo: 'm-auto block',
@@ -11,12 +11,12 @@ const Home = (): JSX.Element => {
 	return (
 		<div id='homeBg'>
 			<Header />
-			<div className='pageCard'>
+			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<Image
-					src={'/logo.jpg'}
-					alt={'Cruiser logo'}
-					width={711}
-					height={166}
+					src='/logo.jpg'
+					alt='Cruiser logo'
+					width='711'
+					height='166'
 					className={css.logo}
 				/>
 				<br />

@@ -3,13 +3,11 @@ header.sticky-header {
 	top: 0;
 	background-color: #333;
 	padding: 20px;
-	margin: 20px auto 20px auto;
-	width: 60%;
-	max-width: 75%;
-	/*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
 	border: 3px solid;
 	border-color: rgba(254, 21, 4, 0.5);
 	border-radius: 25px;
+	width: fit-content;
+	display: block;
 }
 
 .sticky-header a.link {

@@ -1,6 +1,6 @@
 'use client';
 import { JSX } from 'react';
-import { EmbedVideoProps } from '../utils/types';
+import { EmbedVideoProps } from '@/utils/types';
 import YouTube, { YouTubeProps } from 'react-youtube';
 
 const videoAtts = (): EmbedVideoProps[] => {

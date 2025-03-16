@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 interface SvgProp {
 	svg: string;
 }
@@ -6,6 +8,7 @@ export interface HeaderCssProps extends SvgProp {
 	nav: string;
 	ul: string;
 	head: string;
+	divider: string;
 }
 
 export interface HomeCssProps {
@@ -56,4 +59,21 @@ export interface EmbedAudioProps {
 	id: string;
 	label: string;
 	dir: string;
+}
+
+export interface ContactFormProps {
+	name: string;
+	email: string;
+	message: string;
+}
+
+export interface SocialHubProps {
+	svg: JSX.Element;
+	href: string;
+	label: string;
+}
+
+export interface GalleryClassProps {
+	originalClass: string;
+	thumbnailClass: string;
 }

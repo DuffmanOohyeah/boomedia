@@ -1,11 +1,17 @@
 'use client';
 import { JSX, useState } from 'react';
-import Header from '../components/Header';
+import Header from '@/components/Header';
 import { FaMusic, FaYoutube, FaSoundcloud } from 'react-icons/fa';
-import { EmbedVideoProps, MusicCssProps } from '../utils/types';
+import {
+	EmbedAudioProps,
+	EmbedVideoProps,
+	MusicCssProps,
+} from '@/utils/types';
 import Modal from 'react-modal';
-import EmbedAudio, { audioAtts } from '../components/EmbedAudio';
-import EmbedVideo, { videoAtts } from '../components/EmbedVideo';
+import EmbedAudio, { audioAtts } from '@/components/EmbedAudio';
+import EmbedVideo, { videoAtts } from '@/components/EmbedVideo';
+import CountUp from 'react-countup';
+import Link from 'next/link';
 
 const css: MusicCssProps = {
 	h1Svg: 'align-middle inline-block mr-[7px]',
@@ -26,6 +32,9 @@ const modalCss = {
 		/*marginTop: '50px'*/
 	},
 };
+
+const videoArr: EmbedVideoProps[] = videoAtts();
+const audioArr: EmbedAudioProps[] = audioAtts();
 
 const Music = (): JSX.Element => {
 	const [showVideoTab, setShowVideoTab] = useState<boolean>(true);
@@ -239,7 +248,7 @@ const Music = (): JSX.Element => {
 	return (
 		<div id='musicBg'>
 			<Header />
-			<div className='pageCard'>
+			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
 					<FaMusic className={css.h1Svg} /> Music :: Our Pride &amp;
 					Joy
@@ -248,13 +257,13 @@ const Music = (): JSX.Element => {
 				Feel free to check out some of our tunes.
 				<div className='flex font-bold text-center pt-[20px]'>
 					<div
-						className={`w-[50%] ${
+						className={`p-[15px] w-[50%] ${
 							showVideoTab
 								? 'bg-[#333] rounded border-[1px] border-[#fe1504]'
 								: ''
 						}`}
 					>
-						<a
+						<Link
 							href='#'
 							className={
 								showVideoTab
@@ -267,17 +276,23 @@ const Music = (): JSX.Element => {
 								setShowAudioTab(false);
 							}}
 						>
-							Video
-						</a>
+							Video&nbsp;&nbsp;&nbsp;
+							<CountUp
+								end={videoArr.length}
+								duration={5}
+								// suffix=' files'
+								className={`rounded-[50%] border-[1px] p-[10px] m-[10px]`}
+							/>
+						</Link>
 					</div>
 					<div
-						className={`w-[50%] ${
+						className={`p-[15px] w-[50%] ${
 							showAudioTab
 								? 'bg-[#333] rounded border-[1px] border-[#fe1504]'
 								: ''
 						}`}
 					>
-						<a
+						<Link
 							href='#'
 							className={
 								showAudioTab
@@ -290,8 +305,14 @@ const Music = (): JSX.Element => {
 								setShowAudioTab(true);
 							}}
 						>
-							Audio
-						</a>
+							Audio&nbsp;&nbsp;&nbsp;
+							<CountUp
+								end={audioArr.length}
+								duration={5}
+								// suffix=' files'
+								className={`rounded-[50%] border-[1px] p-[10px] m-[10px]`}
+							/>
+						</Link>
 					</div>
 				</div>
 				<div className='flex'>
@@ -304,7 +325,7 @@ const Music = (): JSX.Element => {
 						}
 					>
 						<ul className='musicUl'>
-							{videoAtts().map(
+							{videoArr.map(
 								(obj: EmbedVideoProps, idx: number) => {
 									const { id, label, h, w } = obj;
 									const ytProps: EmbedVideoProps = {
@@ -315,7 +336,7 @@ const Music = (): JSX.Element => {
 
 									return (
 										<li className={css.li} key={idx}>
-											<a
+											<Link
 												href='#'
 												className='link'
 												onClick={(evt) => {
@@ -328,7 +349,7 @@ const Music = (): JSX.Element => {
 												/>
 												&nbsp;
 												{label}
-											</a>
+											</Link>
 											&nbsp;
 											<Modal
 												isOpen={isModalOpen(idx)}
@@ -355,12 +376,12 @@ const Music = (): JSX.Element => {
 						}
 					>
 						<ul className='musicUl'>
-							{audioAtts().map((obj, idx) => {
+							{audioArr.map((obj, idx) => {
 								const _idx = idx + 1000;
 
 								return (
 									<li className={css.li} key={_idx}>
-										<a
+										<Link
 											href='#'
 											className='link'
 											onClick={(evt) => {
@@ -371,7 +392,7 @@ const Music = (): JSX.Element => {
 											<FaSoundcloud className={css.svg} />
 											&nbsp;
 											{obj.label}
-										</a>
+										</Link>
 										&nbsp;
 										<Modal
 											isOpen={isModalOpen(_idx)}

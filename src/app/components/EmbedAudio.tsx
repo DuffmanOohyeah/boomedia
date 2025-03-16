@@ -1,6 +1,7 @@
 'use client';
 import { JSX } from 'react';
-import { EmbedAudioProps } from '../utils/types';
+import { EmbedAudioProps } from '@/utils/types';
+import Link from 'next/link';
 
 const audioAtts = (): EmbedAudioProps[] => {
 	const atts: EmbedAudioProps[] = [
@@ -60,23 +61,23 @@ const EmbedAudio = ({ id, label, dir }: EmbedAudioProps): JSX.Element => {
 					fontWeight: '100',
 				}}
 			>
-				<a
+				<Link
 					href={soundcloudUrl}
 					title='Cruiser'
 					target='_blank'
 					style={{ color: '#ccc', textDecoration: 'none' }}
 				>
 					Cruiser
-				</a>
+				</Link>
 				&nbsp;
-				<a
+				<Link
 					href={`${soundcloudUrl}${dir}`}
 					title={label}
 					target='_blank'
 					style={{ color: '#ccc', textDecoration: 'none' }}
 				>
 					{label}
-				</a>
+				</Link>
 			</div>
 		</>
 	);

@@ -1,8 +1,9 @@
 'use client';
 import { JSX } from 'react';
-import Header from '../components/Header';
+import Header from '@/components/Header';
 import { FaRegNewspaper, FaRegThumbsUp } from 'react-icons/fa';
-import { TesimonialCssProps } from '../utils/types';
+import { TesimonialCssProps } from '@/utils/types';
+import Link from 'next/link';
 
 const css: TesimonialCssProps = {
 	nb: 'pt-[25px] pr-[100px] pb-[0px] pl-[100px]',
@@ -15,7 +16,7 @@ const Testimonials = (): JSX.Element => {
 	return (
 		<div id='testimonialBg'>
 			<Header />
-			<div className='pageCard'>
+			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
 					<FaRegNewspaper className={css.h1Svg} />
 					Testimonials :: Press &amp; Ego Boosts
@@ -25,13 +26,13 @@ const Testimonials = (): JSX.Element => {
 					<li>
 						IAAS Music reviews our November 2023 EP `Come Back
 						Rocky` [
-						<a
+						<Link
 							href='https://www.iaasmusic.com/posts/come-back-rocky-cruiser-ep-review'
 							target='_blank'
 							className='link'
 						>
 							check it out
-						</a>
+						</Link>
 						]
 					</li>
 					<li>
@@ -45,13 +46,13 @@ const Testimonials = (): JSX.Element => {
 					<li>
 						Joyzine reviews one of our many gigs at The Fiddler`s
 						Elbow [
-						<a
+						<Link
 							href='https://joyzine.org/2023/05/02/live-in-pictures-camden-rocks-presents-ft-palindrones-burridge-drownd-cruiser-whitenoise-at-the-fiddlers-elbow-london/'
 							target='_blank'
 							className='link'
 						>
 							check it out
-						</a>
+						</Link>
 						]
 					</li>
 					<li>
@@ -64,13 +65,13 @@ const Testimonials = (): JSX.Element => {
 					engineer for masterminding out last two EP`s (Come Back
 					Rocky and The Stratford Files). Much love to Alex McGowan
 					of&nbsp;
-					<a
+					<Link
 						href='https://www.facebook.com/SpaceEkoEastRecordingStudio'
 						target='_blank'
 						className='link'
 					>
 						Space Eko East Recording Studio
-					</a>
+					</Link>
 					&nbsp; - keep on rockin`.
 				</div>
 				<div className={css.thx}>

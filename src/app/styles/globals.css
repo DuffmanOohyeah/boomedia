@@ -49,7 +49,6 @@ body {
 }
 
 div.pageCard {
-	width: 50%;
 	margin: auto;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -57,7 +56,6 @@ div.pageCard {
 }
 
 #gigBg::before {
-	/*padding-bottom: 20px;*/
 	background-image: url('/billy1.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -78,7 +76,6 @@ div.pageCard {
 }
 
 #musicBg::before {
-	/*padding-bottom: 20px;*/
 	background-image: url('/gear.png');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -96,6 +93,8 @@ div.pageCard {
 	position: relative;
 	min-height: 100vh;
 	height: 100%;
+	/*min-width: 100vw;
+	width: 100%;*/
 }
 
 #socialsBg::before {

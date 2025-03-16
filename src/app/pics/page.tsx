@@ -1,9 +1,10 @@
 'use client';
 import { JSX } from 'react';
-import Header from '../components/Header';
-import { PicCssProps } from '../utils/types';
+import Header from '@/components/Header';
+import { GalleryClassProps, PicCssProps } from '@/utils/types';
 import { FaPhotoVideo } from 'react-icons/fa';
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
+import CountUp from 'react-countup';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 const css: PicCssProps = {
@@ -11,7 +12,7 @@ const css: PicCssProps = {
 	wrap: 'bg-black shadow appearance-none border-[1px] border-[#fe1504] rounded leading-tight focus:outline-none focus:shadow-outline',
 };
 
-const galleryClass = {
+const galleryClass: GalleryClassProps = {
 	originalClass: '/*max-h-[400px] w-auto*/ object-contain',
 	thumbnailClass: 'max-h-[75px] w-auto object-contain',
 };
@@ -228,14 +229,18 @@ const Pics = (): JSX.Element => {
 	return (
 		<div id='picsBg'>
 			<Header />
-			<div className='pageCard'>
+			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
 					<FaPhotoVideo className={css.h1Svg} /> Pics :: Damn pretty
 					boyz
 				</h1>
 				<br />
-				Take a peek at these handsome gentlemen ({images.length}
-				&nbsp;pics to view).
+				Take a peek at these handsome gentlemen.&nbsp;&nbsp;&nbsp;
+				<CountUp
+					end={images.length}
+					duration={5}
+					className={`rounded-[50%] border-[1px] p-[10px] m-[10px]`}
+				/>
 				<br />
 				<br />
 				<div className={css.wrap}>

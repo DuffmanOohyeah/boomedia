@@ -1,37 +1,38 @@
 'use client';
 import { JSX } from 'react';
-import Header from '../components/Header';
+import Header from '@/components/Header';
 import { FaClipboardList } from 'react-icons/fa';
-import { GigCssProps } from '../utils/types';
+import { GigCssProps } from '@/utils/types';
+import Link from 'next/link';
 
 const css: GigCssProps = { h1Svg: 'align-middle inline-block mr-[7px]' };
 
 const GigNav = (): JSX.Element => {
 	return (
 		<nav>
-			<a href='#block6' className='link'>
+			<Link href='#block6' className='link'>
 				2025
-			</a>
+			</Link>
 			&nbsp; |&nbsp;
-			<a href='#block5' className='link'>
+			<Link href='#block5' className='link'>
 				2024
-			</a>
+			</Link>
 			&nbsp; |&nbsp;
-			<a href='#block4' className='link'>
+			<Link href='#block4' className='link'>
 				2023
-			</a>
+			</Link>
 			&nbsp; |&nbsp;
-			<a href='#block3' className='link'>
+			<Link href='#block3' className='link'>
 				2022
-			</a>
+			</Link>
 			&nbsp; |&nbsp;
-			<a href='#block2' className='link'>
+			<Link href='#block2' className='link'>
 				2021
-			</a>
+			</Link>
 			&nbsp; |&nbsp;
-			<a href='#block1' className='link'>
+			<Link href='#block1' className='link'>
 				Early Daze
-			</a>
+			</Link>
 		</nav>
 	);
 };
@@ -40,7 +41,7 @@ const Gigs = (): JSX.Element => {
 	return (
 		<div id='gigBg'>
 			<Header />
-			<div className='pageCard'>
+			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<a id='block6' />
 				<h1>
 					<FaClipboardList className={css.h1Svg} /> Gigs :: Upcoming

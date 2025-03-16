@@ -10,15 +10,17 @@ import {
 	FaCommentDots,
 	FaCocktail,
 } from 'react-icons/fa';
-import { HeaderCssProps } from '../utils/types';
 import { usePathname } from 'next/navigation';
-import '../styles/header.css';
+import Link from 'next/link';
+import { HeaderCssProps } from '@/utils/types';
+import '@/styles/header.css';
 
 const css: HeaderCssProps = {
-	svg: 'inline-block align-middle mr-[7px]',
-	nav: 'flex justify-center',
-	ul: 'flex list-none gap-[20px]',
-	head: 'z-1',
+	svg: 'inline-block align-middle mr-[7px] md:contents lg:inline-block',
+	nav: 'justify-center md:flex lg:flex',
+	ul: 'list-none gap-[20px] md:flex lg:flex leading-none',
+	divider: 'invisible md:visible',
+	head: 'z-1 m-[20px] md:max-w-[90%] md:mr-auto md:ml-auto lg:max-w-[80%]',
 };
 
 const Header = (): JSX.Element => {
@@ -39,17 +41,17 @@ const Header = (): JSX.Element => {
 			<nav className={css.nav}>
 				<ul className={css.ul}>
 					<li>
-						<a
+						<Link
 							href={'/'}
 							className={`link ${path === '/' ? 'active' : ''}`}
 						>
 							<FaHome className={css.svg} />
 							Home
-						</a>
+						</Link>
 					</li>
-					<li>|</li>
+					<li className={css.divider}>|</li>
 					<li>
-						<a
+						<Link
 							href={'/music'}
 							className={`link ${
 								path.search(/music/i) > -1 ? 'active' : ''
@@ -57,11 +59,11 @@ const Header = (): JSX.Element => {
 						>
 							<FaMusic className={css.svg} />
 							Music
-						</a>
+						</Link>
 					</li>
-					<li>|</li>
+					<li className={css.divider}>|</li>
 					<li>
-						<a
+						<Link
 							href={'/pics'}
 							className={`link ${
 								path.search(/pics/i) > -1 ? 'active' : ''
@@ -69,11 +71,11 @@ const Header = (): JSX.Element => {
 						>
 							<FaPhotoVideo className={css.svg} />
 							Pics
-						</a>
+						</Link>
 					</li>
-					<li>|</li>
+					<li className={css.divider}>|</li>
 					<li>
-						<a
+						<Link
 							href={'/gigs'}
 							className={`link ${
 								path.search(/gigs/i) > -1 ? 'active' : ''
@@ -81,11 +83,11 @@ const Header = (): JSX.Element => {
 						>
 							<FaClipboardList className={css.svg} />
 							Gigs
-						</a>
+						</Link>
 					</li>
-					<li>|</li>
+					<li className={css.divider}>|</li>
 					<li>
-						<a
+						<Link
 							href={'/socials'}
 							className={`link ${
 								path.search(/socials/i) > -1 ? 'active' : ''
@@ -93,11 +95,11 @@ const Header = (): JSX.Element => {
 						>
 							<FaCocktail className={css.svg} />
 							Socials
-						</a>
+						</Link>
 					</li>
-					<li>|</li>
+					<li className={css.divider}>|</li>
 					<li>
-						<a
+						<Link
 							href={'/testimonials'}
 							className={`link ${
 								path.search(/testimonials/i) > -1
@@ -107,11 +109,11 @@ const Header = (): JSX.Element => {
 						>
 							<FaRegNewspaper className={css.svg} />
 							Testimonials
-						</a>
+						</Link>
 					</li>
-					<li>|</li>
+					<li className={css.divider}>|</li>
 					<li>
-						<a
+						<Link
 							href={'/contact'}
 							className={`link ${
 								path.search(/contact/i) > -1 ? 'active' : ''
@@ -119,7 +121,7 @@ const Header = (): JSX.Element => {
 						>
 							<FaCommentDots className={css.svg} />
 							Contact
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</nav>

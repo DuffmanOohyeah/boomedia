@@ -1,9 +1,9 @@
 'use client';
 import { JSX, useState } from 'react';
-import Header from '../components/Header';
+import Header from '@/components/Header';
 import { FaCommentDots } from 'react-icons/fa';
-import { ContactCssProps } from '../utils/types';
-import { isEmailValid } from '../utils/isEmailValid';
+import { ContactCssProps, ContactFormProps } from '@/utils/types';
+import { isEmailValid } from '@/utils/isEmailValid';
 
 const css: ContactCssProps = {
 	label: 'w-[25%] inline-block text-right pr-[20px]',
@@ -13,33 +13,40 @@ const css: ContactCssProps = {
 	h1Svg: 'align-middle inline-block mr-[7px]',
 };
 
-const Contact = (): JSX.Element => {
-	const [name, setName] = useState<string>('');
-	const [email, setEmail] = useState<string>('');
-	const [message, setMessage] = useState<string>('');
-	const [mailTo] = useState<string>('duff_beer_corp@hotmail.com');
-
-	/*if (process.env && process.env.NODE_ENV === 'production')
-		setMailTo('cruisertherockband@outlook.com');*/
-
+const getFormAction = ({ name, email, message }: ContactFormProps): string => {
+	let mailTo: string = 'duff_beer_corp@hotmail.com';
+	if (process.env.NODE_ENV === 'production')
+		mailTo = 'cruisertherockband@outlook.com';
 	const crlf = '\r\n';
 	let formAction: string = `mailto:${mailTo}`;
 	formAction += `?subject=Hey Cruiser!`;
 	formAction += `&body=${message}`;
 	formAction += `${crlf.repeat(2)}Cheers,${crlf}${name}`;
 	formAction += `${crlf}${email}`;
+	return encodeURI(formAction);
+};
+
+const Contact = (): JSX.Element => {
+	const [name, setName] = useState<string>('');
+	const [email, setEmail] = useState<string>('');
+	const [message, setMessage] = useState<string>('');
+	const formArgs: ContactFormProps = {
+		name: name,
+		email: email,
+		message: message,
+	};
 
 	return (
 		<div id='contactBg'>
 			<Header />
-			<div className='pageCard'>
+			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
 					<FaCommentDots className={css.h1Svg} /> Contact :: Give us a
 					shout
 				</h1>
 				<br />
 				<form
-					action={encodeURI(formAction)}
+					action={getFormAction({ ...formArgs })}
 					method='post'
 					encType='application/x-www-form-urlencoded'
 				>
@@ -49,7 +56,7 @@ const Contact = (): JSX.Element => {
 					<input
 						id='name'
 						type='text'
-						size={50}
+						size={40}
 						className={`${css.input} ${
 							name.trim().length === 0 ? 'border-[#fe1504]' : ''
 						}`}
@@ -58,7 +65,16 @@ const Contact = (): JSX.Element => {
 							setName(evt.target.value.trim());
 						}}
 					/>
-					<br />
+					{!name ? (
+						<>
+							<br />
+							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-[#fe1504] text-right text-sm'>
+								Name is required.
+							</div>
+						</>
+					) : (
+						<br />
+					)}
 					<br />
 					<label htmlFor='email' className={css.label}>
 						Email:
@@ -66,7 +82,7 @@ const Contact = (): JSX.Element => {
 					<input
 						id='email'
 						type='text'
-						size={50}
+						size={40}
 						className={`${css.input} ${
 							isEmailValid(email) ? '' : 'border-[#fe1504]'
 						}`}
@@ -76,7 +92,16 @@ const Contact = (): JSX.Element => {
 							setEmail(isEmailValid(_email) ? _email : '');
 						}}
 					/>
-					<br />
+					{!email ? (
+						<>
+							<br />
+							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-[#fe1504] text-right text-sm'>
+								Valid email is required.
+							</div>
+						</>
+					) : (
+						<br />
+					)}
 					<br />
 					<label
 						htmlFor='message'
@@ -86,7 +111,7 @@ const Contact = (): JSX.Element => {
 					</label>
 					<textarea
 						id='message'
-						cols={52}
+						cols={44}
 						rows={5}
 						className={`${css.input} ${
 							message.trim().length === 0
@@ -98,6 +123,14 @@ const Contact = (): JSX.Element => {
 							setMessage(evt.target.value.trim());
 						}}
 					></textarea>
+					{!message && (
+						<>
+							<br />
+							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-[#fe1504] text-right text-sm'>
+								Message is required.
+							</div>
+						</>
+					)}
 
 					<div className={css.buttonDiv}>
 						<button
