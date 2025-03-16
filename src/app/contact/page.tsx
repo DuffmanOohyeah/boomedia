@@ -17,10 +17,10 @@ const Contact = (): JSX.Element => {
 	const [name, setName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [message, setMessage] = useState<string>('');
-	const [mailTo, setMailTo] = useState<string>('duff_beer_corp@hotmail.com');
+	const [mailTo] = useState<string>('duff_beer_corp@hotmail.com');
 
-	if (process.env && process.env.NODE_ENV === 'production')
-		setMailTo('cruisertherockband@outlook.com');
+	/*if (process.env && process.env.NODE_ENV === 'production')
+		setMailTo('cruisertherockband@outlook.com');*/
 
 	const crlf = '\r\n';
 	let formAction: string = `mailto:${mailTo}`;

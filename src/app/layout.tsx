@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ReactNode } from 'react';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { NextFontWithVariable } from 'next/dist/compiled/@next/font';
 import './styles/globals.css';
@@ -21,13 +22,11 @@ const metadata: Metadata = {
 const RootLayout = ({
 	children,
 }: Readonly<{
-	children: React.ReactNode;
+	children: ReactNode;
 }>) => {
 	return (
 		<html lang='en'>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
+			<body className={`${geistSans.variable} ${geistMono.variable}`}>
 				{children}
 			</body>
 		</html>
