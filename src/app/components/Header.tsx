@@ -13,7 +13,6 @@ import {
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { HeaderCssProps } from '@/utils/types';
-import '@/styles/header.css';
 
 const css: HeaderCssProps = {
 	svg: 'inline-block align-middle mr-[7px] md:contents lg:inline-block',

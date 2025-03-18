@@ -11,6 +11,10 @@ export interface HeaderCssProps extends SvgProp {
 	divider: string;
 }
 
+export interface FooterCssProps extends SvgProp {
+	tag: string;
+}
+
 export interface HomeCssProps {
 	logo: string;
 }

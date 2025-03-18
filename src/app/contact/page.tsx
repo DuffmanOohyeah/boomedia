@@ -4,11 +4,12 @@ import Header from '@/components/Header';
 import { FaCommentDots } from 'react-icons/fa';
 import { ContactCssProps, ContactFormProps } from '@/utils/types';
 import { isEmailValid } from '@/utils/isEmailValid';
+import Footer from '@/components/Footer';
 
 const css: ContactCssProps = {
 	label: 'w-[25%] inline-block text-right pr-[20px]',
 	input: 'bg-white shadow appearance-none border-[1px] rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
-	button: 'bg-[#ffb913bf] hover:bg-[#ffb91380] text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer',
+	button: 'bg-(--color-gold-light) hover:bg-(--color-gold-dark) py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer',
 	buttonDiv: 'text-right pt-[50px]',
 	h1Svg: 'align-middle inline-block mr-[7px]',
 };
@@ -37,7 +38,7 @@ const Contact = (): JSX.Element => {
 	};
 
 	return (
-		<div id='contactBg'>
+		<div id='contactBg' className='pageBg'>
 			<Header />
 			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
@@ -58,7 +59,9 @@ const Contact = (): JSX.Element => {
 						type='text'
 						size={40}
 						className={`${css.input} ${
-							name.trim().length === 0 ? 'border-[#fe1504]' : ''
+							name.trim().length === 0
+								? 'border-(--color-red-light)'
+								: ''
 						}`}
 						defaultValue={name}
 						onChange={(evt) => {
@@ -68,8 +71,8 @@ const Contact = (): JSX.Element => {
 					{!name ? (
 						<>
 							<br />
-							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-[#fe1504] text-right text-sm'>
-								Name is required.
+							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-(--color-red-light) text-right text-sm'>
+								Name required.
 							</div>
 						</>
 					) : (
@@ -84,7 +87,9 @@ const Contact = (): JSX.Element => {
 						type='text'
 						size={40}
 						className={`${css.input} ${
-							isEmailValid(email) ? '' : 'border-[#fe1504]'
+							isEmailValid(email)
+								? ''
+								: 'border-(--color-red-light)'
 						}`}
 						defaultValue={email}
 						onChange={(evt) => {
@@ -95,8 +100,8 @@ const Contact = (): JSX.Element => {
 					{!email ? (
 						<>
 							<br />
-							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-[#fe1504] text-right text-sm'>
-								Valid email is required.
+							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-(--color-red-light) text-right text-sm'>
+								Valid email required.
 							</div>
 						</>
 					) : (
@@ -115,7 +120,7 @@ const Contact = (): JSX.Element => {
 						rows={5}
 						className={`${css.input} ${
 							message.trim().length === 0
-								? 'border-[#fe1504]'
+								? 'border-(--color-red-light)'
 								: ''
 						}`}
 						defaultValue={message}
@@ -126,8 +131,8 @@ const Contact = (): JSX.Element => {
 					{!message && (
 						<>
 							<br />
-							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-[#fe1504] text-right text-sm'>
-								Message is required.
+							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-(--color-red-light) text-right text-sm'>
+								Message required.
 							</div>
 						</>
 					)}
@@ -143,6 +148,7 @@ const Contact = (): JSX.Element => {
 					</div>
 				</form>
 			</div>
+			<Footer />
 		</div>
 	);
 };

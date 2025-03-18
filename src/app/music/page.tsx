@@ -2,16 +2,13 @@
 import { JSX, useState } from 'react';
 import Header from '@/components/Header';
 import { FaMusic, FaYoutube, FaSoundcloud } from 'react-icons/fa';
-import {
-	EmbedAudioProps,
-	EmbedVideoProps,
-	MusicCssProps,
-} from '@/utils/types';
+import { EmbedAudioProps, EmbedVideoProps, MusicCssProps } from '@/utils/types';
 import Modal from 'react-modal';
 import EmbedAudio, { audioAtts } from '@/components/EmbedAudio';
 import EmbedVideo, { videoAtts } from '@/components/EmbedVideo';
 import CountUp from 'react-countup';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 const css: MusicCssProps = {
 	h1Svg: 'align-middle inline-block mr-[7px]',
@@ -27,9 +24,8 @@ const modalCss = {
 		bottom: 'auto',
 		marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
-		border: '1px solid #fe1504',
-		background: '#333',
-		/*marginTop: '50px'*/
+		border: '1px solid var(--color-red-light)',
+		background: 'var(--color-charcoal)',
 	},
 };
 
@@ -246,7 +242,7 @@ const Music = (): JSX.Element => {
 	};
 
 	return (
-		<div id='musicBg'>
+		<div id='musicBg' className='pageBg'>
 			<Header />
 			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
@@ -255,11 +251,11 @@ const Music = (): JSX.Element => {
 				</h1>
 				<br />
 				Feel free to check out some of our tunes.
-				<div className='flex font-bold text-center pt-[20px]'>
+				<div className='flex font-(--font-weight-bold) text-center pt-[20px]'>
 					<div
 						className={`p-[15px] w-[50%] ${
 							showVideoTab
-								? 'bg-[#333] rounded border-[1px] border-[#fe1504]'
+								? 'bg-(--color-charcoal) rounded border-[1px] border-(--color-red-light)'
 								: ''
 						}`}
 					>
@@ -267,8 +263,8 @@ const Music = (): JSX.Element => {
 							href='#'
 							className={
 								showVideoTab
-									? 'text-[#ffb913bf] hover:text-[#ffb91380]'
-									: 'text-[#ffb91380] hover:text-[#ffb913bf]'
+									? 'text-(--color-gold-light) hover:text-(--color-gold-dark)'
+									: 'text-(--color-gold-dark) hover:text-(--color-gold-light)'
 							}
 							onClick={(evt) => {
 								evt.preventDefault();
@@ -288,7 +284,7 @@ const Music = (): JSX.Element => {
 					<div
 						className={`p-[15px] w-[50%] ${
 							showAudioTab
-								? 'bg-[#333] rounded border-[1px] border-[#fe1504]'
+								? 'bg-(--color-charcoal) rounded border-[1px] border-(--color-red-light)'
 								: ''
 						}`}
 					>
@@ -296,8 +292,8 @@ const Music = (): JSX.Element => {
 							href='#'
 							className={
 								showAudioTab
-									? 'text-[#ffb913bf] hover:text-[#ffb91380]'
-									: 'text-[#ffb91380] hover:text-[#ffb913bf]'
+									? 'text-(--color-gold-light) hover:text-(--color-gold-dark)'
+									: 'text-(--color-gold-dark) hover:text-(--color-gold-light)'
 							}
 							onClick={(evt) => {
 								evt.preventDefault();
@@ -409,6 +405,7 @@ const Music = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 };

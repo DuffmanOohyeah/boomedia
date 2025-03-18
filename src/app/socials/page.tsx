@@ -12,6 +12,7 @@ import {
 import { SocialCssProps, SocialHubProps } from '@/utils/types';
 import CountUp from 'react-countup';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 const css: SocialCssProps = {
 	svg: 'inline w-7 h-7 align-middle',
@@ -54,7 +55,7 @@ const Socials = (): JSX.Element => {
 	const getHubs = getSocialHubs();
 
 	return (
-		<div id='socialsBg'>
+		<div id='socialsBg' className='pageBg'>
 			<Header />
 			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
@@ -87,6 +88,7 @@ const Socials = (): JSX.Element => {
 					})}
 				</ul>
 			</div>
+			<Footer />
 		</div>
 	);
 };

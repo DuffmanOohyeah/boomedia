@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import { FaClipboardList } from 'react-icons/fa';
 import { GigCssProps } from '@/utils/types';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 const css: GigCssProps = { h1Svg: 'align-middle inline-block mr-[7px]' };
 
@@ -39,7 +40,7 @@ const GigNav = (): JSX.Element => {
 
 const Gigs = (): JSX.Element => {
 	return (
-		<div id='gigBg'>
+		<div id='gigBg' className='pageBg'>
 			<Header />
 			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<a id='block6' />
@@ -138,6 +139,7 @@ const Gigs = (): JSX.Element => {
 					<li>The Fleece - Bristol, UK</li>
 				</ul>
 			</div>
+			<Footer />
 		</div>
 	);
 };

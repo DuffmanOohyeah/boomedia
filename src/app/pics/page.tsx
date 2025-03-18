@@ -6,10 +6,11 @@ import { FaPhotoVideo } from 'react-icons/fa';
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
 import CountUp from 'react-countup';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import Footer from '@/components/Footer';
 
 const css: PicCssProps = {
 	h1Svg: 'align-middle inline-block mr-[7px]',
-	wrap: 'bg-black shadow appearance-none border-[1px] border-[#fe1504] rounded leading-tight focus:outline-none focus:shadow-outline',
+	wrap: 'bg-black shadow appearance-none border-[1px] border-(--color-red-light) rounded leading-tight focus:outline-none focus:shadow-outline',
 };
 
 const galleryClass: GalleryClassProps = {
@@ -227,7 +228,7 @@ const images: ReactImageGalleryItem[] = [
 
 const Pics = (): JSX.Element => {
 	return (
-		<div id='picsBg'>
+		<div id='picsBg' className='pageBg'>
 			<Header />
 			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<h1>
@@ -247,6 +248,7 @@ const Pics = (): JSX.Element => {
 					<ImageGallery items={images} />
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 };

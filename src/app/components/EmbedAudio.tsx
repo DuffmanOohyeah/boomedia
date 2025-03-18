@@ -50,7 +50,7 @@ const EmbedAudio = ({ id, label, dir }: EmbedAudioProps): JSX.Element => {
 			<div
 				style={{
 					fontSize: '10px',
-					color: '#ccc',
+					color: 'var(--color-gray)',
 					lineBreak: 'anywhere',
 					wordBreak: 'normal',
 					overflow: 'hidden',
@@ -65,7 +65,10 @@ const EmbedAudio = ({ id, label, dir }: EmbedAudioProps): JSX.Element => {
 					href={soundcloudUrl}
 					title='Cruiser'
 					target='_blank'
-					style={{ color: '#ccc', textDecoration: 'none' }}
+					style={{
+						color: 'var(--color-gray)',
+						textDecoration: 'none',
+					}}
 				>
 					Cruiser
 				</Link>
@@ -74,7 +77,10 @@ const EmbedAudio = ({ id, label, dir }: EmbedAudioProps): JSX.Element => {
 					href={`${soundcloudUrl}${dir}`}
 					title={label}
 					target='_blank'
-					style={{ color: '#ccc', textDecoration: 'none' }}
+					style={{
+						color: 'var(--color-gray)',
+						textDecoration: 'none',
+					}}
 				>
 					{label}
 				</Link>

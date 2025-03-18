@@ -2,6 +2,7 @@ import { JSX } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import { HomeCssProps } from '@/utils/types';
+import Footer from '@/components/Footer';
 
 const css: HomeCssProps = {
 	logo: 'm-auto block',
@@ -9,7 +10,7 @@ const css: HomeCssProps = {
 
 const Home = (): JSX.Element => {
 	return (
-		<div id='homeBg'>
+		<div id='homeBg' className='pageBg'>
 			<Header />
 			<div className='pageCard w-[90%] md:w-[70%] lg:w-[50%]'>
 				<Image
@@ -64,6 +65,7 @@ const Home = (): JSX.Element => {
 				pop-punk. We&apos;re a tight group, and we enjoy rocking out for
 				our fans - both existing and new.
 			</div>
+			<Footer />
 		</div>
 	);
 };
