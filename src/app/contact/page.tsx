@@ -50,7 +50,7 @@ const Contact = (): JSX.Element => {
 					/*action={getFormAction({ ...formArgs })}
 					method='post'
 					encType='application/x-www-form-urlencoded'*/
-					data-netlify
+					data-netlify='true'
 				>
 					<label htmlFor='name' className={css.label}>
 						Name:
