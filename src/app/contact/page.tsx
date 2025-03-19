@@ -2,7 +2,7 @@
 import { JSX, useState } from 'react';
 import Header from '@/components/Header';
 import { FaCommentDots } from 'react-icons/fa';
-import { ContactCssProps, ContactFormProps } from '@/utils/types';
+import { ContactCssProps /*, ContactFormProps*/ } from '@/utils/types';
 import { isEmailValid } from '@/utils/isEmailValid';
 import Footer from '@/components/Footer';
 
@@ -14,7 +14,7 @@ const css: ContactCssProps = {
 	h1Svg: 'align-middle inline-block mr-[7px]',
 };
 
-const getFormAction = ({ name, email, message }: ContactFormProps): string => {
+/*const getFormAction = ({ name, email, message }: ContactFormProps): string => {
 	let mailTo: string = 'duff_beer_corp@hotmail.com';
 	if (process.env.NODE_ENV === 'production')
 		mailTo = 'cruisertherockband@outlook.com';
@@ -25,17 +25,17 @@ const getFormAction = ({ name, email, message }: ContactFormProps): string => {
 	formAction += `${crlf.repeat(2)}Cheers,${crlf}${name}`;
 	formAction += `${crlf}${email}`;
 	return encodeURI(formAction);
-};
+};*/
 
 const Contact = (): JSX.Element => {
 	const [name, setName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [message, setMessage] = useState<string>('');
-	const formArgs: ContactFormProps = {
+	/*const formArgs: ContactFormProps = {
 		name: name,
 		email: email,
 		message: message,
-	};
+	};*/
 
 	return (
 		<div id='contactBg' className='pageBg'>
@@ -47,9 +47,10 @@ const Contact = (): JSX.Element => {
 				</h1>
 				<br />
 				<form
-					action={getFormAction({ ...formArgs })}
+					/*action={getFormAction({ ...formArgs })}
 					method='post'
-					encType='application/x-www-form-urlencoded'
+					encType='application/x-www-form-urlencoded'*/
+					data-netlify
 				>
 					<label htmlFor='name' className={css.label}>
 						Name:
