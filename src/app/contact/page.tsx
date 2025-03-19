@@ -2,7 +2,7 @@
 import { JSX, useState } from 'react';
 import Header from '@/components/Header';
 import { FaCommentDots } from 'react-icons/fa';
-import { ContactCssProps /*, ContactFormProps*/ } from '@/utils/types';
+import { ContactCssProps, ContactFormProps } from '@/utils/types';
 import { isEmailValid } from '@/utils/isEmailValid';
 import Footer from '@/components/Footer';
 
@@ -14,7 +14,7 @@ const css: ContactCssProps = {
 	h1Svg: 'align-middle inline-block mr-[7px]',
 };
 
-/*const getFormAction = ({ name, email, message }: ContactFormProps): string => {
+const getFormAction = ({ name, email, message }: ContactFormProps): string => {
 	let mailTo: string = 'duff_beer_corp@hotmail.com';
 	if (process.env.NODE_ENV === 'production')
 		mailTo = 'cruisertherockband@outlook.com';
@@ -25,21 +25,21 @@ const css: ContactCssProps = {
 	formAction += `${crlf.repeat(2)}Cheers,${crlf}${name}`;
 	formAction += `${crlf}${email}`;
 	return encodeURI(formAction);
-};*/
+};
 
 const Contact = (): JSX.Element => {
 	const [name, setName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [message, setMessage] = useState<string>('');
-	const [, setStatus] = useState<string>('');
-	const [, setError] = useState<string>('');
-	/*const formArgs: ContactFormProps = {
+	/*const [, setStatus] = useState<string>('');
+	const [, setError] = useState<string>('');*/
+	const formArgs: ContactFormProps = {
 		name: name,
 		email: email,
 		message: message,
-	};*/
+	};
 
-	const handleFormSubmit = async (event: { preventDefault: () => void; target: unknown; }) => {
+	/*const handleFormSubmit = async (event: { preventDefault: () => void; target: unknown; }) => {
 		event.preventDefault();
 		try {
 			setStatus('pending');
@@ -70,7 +70,7 @@ const Contact = (): JSX.Element => {
 			setStatus('error');
 			setError(`${err}`);
 		}
-	};
+	};*/
 
 	return (
 		<div id='contactBg' className='pageBg'>
@@ -82,10 +82,10 @@ const Contact = (): JSX.Element => {
 				</h1>
 				<br />
 				<form
-					/*action={getFormAction({ ...formArgs })}
+					action={getFormAction({ ...formArgs })}
 					method='post'
-					encType='application/x-www-form-urlencoded'*/
-					onSubmit={handleFormSubmit}
+					encType='application/x-www-form-urlencoded'
+					// onSubmit={handleFormSubmit}
 					data-netlify='true'
 				>
 					<label htmlFor='name' className={css.label}>
