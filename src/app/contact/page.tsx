@@ -31,11 +31,46 @@ const Contact = (): JSX.Element => {
 	const [name, setName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [message, setMessage] = useState<string>('');
+	const [, setStatus] = useState<string>('');
+	const [, setError] = useState<string>('');
 	/*const formArgs: ContactFormProps = {
 		name: name,
 		email: email,
 		message: message,
 	};*/
+
+	const handleFormSubmit = async (event: { preventDefault: () => void; target: unknown; }) => {
+		event.preventDefault();
+		try {
+			setStatus('pending');
+			setError('');
+			const myForm = event.target;
+			const formData = new FormData(myForm);
+
+			console.log('myForm:', myForm);
+			console.log('formData:', formData);
+
+			const res = await fetch('/__forms.html', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				body: new URLSearchParams(formData).toString(),
+			});
+
+			console.log('res:',res);
+
+			if (res.status === 200) {
+				setStatus('ok');
+			} else {
+				setStatus('error');
+				setError(`${res.status} ${res.statusText}`);
+			}
+		} catch (err) {
+			setStatus('error');
+			setError(`${err}`);
+		}
+	};
 
 	return (
 		<div id='contactBg' className='pageBg'>
@@ -50,6 +85,7 @@ const Contact = (): JSX.Element => {
 					/*action={getFormAction({ ...formArgs })}
 					method='post'
 					encType='application/x-www-form-urlencoded'*/
+					onSubmit={handleFormSubmit}
 					data-netlify='true'
 				>
 					<label htmlFor='name' className={css.label}>
