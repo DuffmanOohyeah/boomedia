@@ -1,30 +1,21 @@
 'use client';
 import { JSX, useEffect, useState } from 'react';
 import { Events } from 'react-scroll';
-import {
-	FaHome,
-	FaMusic,
-	FaPhotoVideo,
-	FaClipboardList,
-	FaRegNewspaper,
-	FaCommentDots,
-	FaCocktail,
-} from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { HeaderCssProps } from '@/utils/types';
+import { NavBlockCssProps, StickyCssProps } from '@/utils/types';
+import NavBlock from '@/components/NavBlock';
 
-const css: HeaderCssProps = {
-	svg: 'inline-block align-middle mr-[7px] md:contents lg:inline-block',
-	nav: 'justify-center md:flex lg:flex',
-	ul: 'list-none gap-[20px] md:flex lg:flex leading-none',
-	divider: 'invisible md:visible',
-	head: 'z-1 m-[20px] md:max-w-[90%] md:mr-auto md:ml-auto lg:max-w-[80%]',
+const css: StickyCssProps = {
+	svg: 'w-7 h-7 p-[5px] bg-(--color-charcoal) border-[1px] rounded border-[1px] border-(--color-red-light)',
+	sticky: 'z-1 sticky top-0',
 };
 
 const Header = (): JSX.Element => {
 	const [isSticky, setIsSticky] = useState<boolean>(true);
+	const [showNav, setShowNav] = useState<boolean>(false);
 	const path: string = usePathname();
+	const navArgs: NavBlockCssProps = { path: path, isSticky: isSticky };
 
 	useEffect(() => {
 		Events.scrollEvent.register('begin', () => setIsSticky(true));
@@ -36,95 +27,23 @@ const Header = (): JSX.Element => {
 	}, []);
 
 	return (
-		<header className={`${css.head} ${isSticky ? 'sticky-header' : ''}`}>
-			<nav className={css.nav}>
-				<ul className={css.ul}>
-					<li>
-						<Link
-							href={'/'}
-							className={`link ${path === '/' ? 'active' : ''}`}
-						>
-							<FaHome className={css.svg} />
-							Home
-						</Link>
-					</li>
-					<li className={css.divider}>|</li>
-					<li>
-						<Link
-							href={'/music'}
-							className={`link ${
-								path.search(/music/i) > -1 ? 'active' : ''
-							}`}
-						>
-							<FaMusic className={css.svg} />
-							Music
-						</Link>
-					</li>
-					<li className={css.divider}>|</li>
-					<li>
-						<Link
-							href={'/pics'}
-							className={`link ${
-								path.search(/pics/i) > -1 ? 'active' : ''
-							}`}
-						>
-							<FaPhotoVideo className={css.svg} />
-							Pics
-						</Link>
-					</li>
-					<li className={css.divider}>|</li>
-					<li>
-						<Link
-							href={'/gigs'}
-							className={`link ${
-								path.search(/gigs/i) > -1 ? 'active' : ''
-							}`}
-						>
-							<FaClipboardList className={css.svg} />
-							Gigs
-						</Link>
-					</li>
-					<li className={css.divider}>|</li>
-					<li>
-						<Link
-							href={'/socials'}
-							className={`link ${
-								path.search(/socials/i) > -1 ? 'active' : ''
-							}`}
-						>
-							<FaCocktail className={css.svg} />
-							Socials
-						</Link>
-					</li>
-					<li className={css.divider}>|</li>
-					<li>
-						<Link
-							href={'/testimonials'}
-							className={`link ${
-								path.search(/testimonials/i) > -1
-									? 'active'
-									: ''
-							}`}
-						>
-							<FaRegNewspaper className={css.svg} />
-							Testimonials
-						</Link>
-					</li>
-					<li className={css.divider}>|</li>
-					<li>
-						<Link
-							href={'/contact'}
-							className={`link ${
-								path.search(/contact/i) > -1 ? 'active' : ''
-							}`}
-						>
-							<FaCommentDots className={css.svg} />
-							Contact
-						</Link>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<>
+			<div className={`block md:hidden mt-5 ml-5 ${css.sticky}`}>
+				<FaBars
+					className={css.svg}
+					onClick={(evt) => {
+						evt.preventDefault();
+						setShowNav(!showNav);
+					}}
+				/>
+				{showNav && <NavBlock {...navArgs} />}
+			</div>
+			<div
+				className={`hidden md:block md:mt-[20px] md:mr-auto md:ml-auto ${css.sticky}`}
+			>
+				<NavBlock {...navArgs} />
+			</div>
+		</>
 	);
 };
 

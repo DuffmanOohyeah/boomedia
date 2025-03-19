@@ -23,7 +23,7 @@ const config: Config = {
 			*/
 		},
 	},
-	content: [],
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	plugins: [],
 	// safelist: ['color-gray-light', 'bg-(color-gray-light)'],
 };

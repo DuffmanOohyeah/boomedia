@@ -81,3 +81,12 @@ export interface GalleryClassProps {
 	originalClass: string;
 	thumbnailClass: string;
 }
+
+export interface NavBlockCssProps {
+	path: string;
+	isSticky?: boolean;
+}
+
+export interface StickyCssProps extends SvgProp {
+	sticky: string;
+}

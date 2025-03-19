@@ -26,14 +26,13 @@ body {
 }
 
 /* start: header.css */
+nav.navBlock,
 header.sticky-header {
 	position: sticky;
 	top: 0;
-	/*background-color: #333;*/
 	background-color: var(--color-charcoal);
 	padding: 20px;
-	border: 3px solid;
-	border-color: var(--color-red-dark);
+	border: 3px solid var(--color-red-dark);
 	border-radius: 25px;
 	width: fit-content;
 	display: block;
