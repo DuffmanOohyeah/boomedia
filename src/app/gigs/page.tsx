@@ -55,7 +55,10 @@ const Gigs = (): JSX.Element => {
 					2025
 				</h2>
 				<ul className='gigsUl'>
-					<li>East Street Tap - April 2025; Brighton, UK (TBC)</li>
+					<li>Priory Football Club - June 2025; Reigate UK (TBC)</li>
+					<li className='line-through'>
+						East Street Tap - April 2025; Brighton, UK
+					</li>
 					<li>
 						Amersham Arms - February 2025; New Cross, London, UK
 					</li>
