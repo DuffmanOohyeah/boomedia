@@ -55,7 +55,9 @@ const Gigs = (): JSX.Element => {
 					2025
 				</h2>
 				<ul className='gigsUl'>
-					<li>Priory Football Club - June 2025; Reigate UK (TBC)</li>
+					<li>(Venue TBD) - July 2025; East London, UK</li>
+					<li>St James Wine Vaults - June 2025; Bath, UK</li>
+					<li>Priory Football Club - June 2025; Reigate, UK</li>
 					<li className='line-through'>
 						East Street Tap - April 2025; Brighton, UK
 					</li>
