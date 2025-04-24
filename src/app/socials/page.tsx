@@ -8,6 +8,7 @@ import {
 	FaBandcamp,
 	FaFacebook,
 	FaSpotify,
+	FaItunes,
 } from 'react-icons/fa';
 import { SocialCssProps, SocialHubProps } from '@/utils/types';
 import CountUp from 'react-countup';
@@ -46,6 +47,11 @@ const getSocialHubs = (): SocialHubProps[] => {
 			svg: <FaSpotify className={css.svg} />,
 			href: 'https://open.spotify.com/artist/5zYwADqi0cJ5B1f36y8kAB',
 			label: 'Spotify',
+		},
+		{
+			svg: <FaItunes className={css.svg} />,
+			href: 'https://music.apple.com/ca/artist/cruiser/1719753719',
+			label: 'Apple Music',
 		},
 	];
 	return rtnArr;
