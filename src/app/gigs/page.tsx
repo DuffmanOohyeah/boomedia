@@ -55,15 +55,13 @@ const Gigs = (): JSX.Element => {
 					2025
 				</h2>
 				<ul className='gigsUl'>
-					<li>(Venue TBD) - July 2025; East London, UK</li>
-					<li>St James Wine Vaults - June 2025; Bath, UK</li>
-					<li>Priory Football Club - June 2025; Reigate, UK</li>
+					<li>The Beehive - July 2025; Bromley-by-Bow London UK</li>
+					<li>St James Wine Vaults - June 2025; Bath UK</li>
+					<li>Priory Football Club - June 2025; Reigate UK</li>
 					<li className='line-through'>
-						East Street Tap - April 2025; Brighton, UK
+						East Street Tap - April 2025; Brighton UK
 					</li>
-					<li>
-						Amersham Arms - February 2025; New Cross, London, UK
-					</li>
+					<li>Amersham Arms - February 2025; New Cross London UK</li>
 				</ul>
 
 				<h2>
@@ -72,7 +70,7 @@ const Gigs = (): JSX.Element => {
 				</h2>
 				<ul className='gigsUl'>
 					<li>
-						Cart &amp; Horses - November 2024; Stratford London, UK
+						Cart &amp; Horses - November 2024; Stratford London UK
 						(The Stratford Files; EP Release Party)
 					</li>
 					<li>
@@ -80,7 +78,7 @@ const Gigs = (): JSX.Element => {
 						Rocks)
 					</li>
 					<li>Priory Football Club - June 2024; Reigate UK</li>
-					<li>The Beehive - April 2024; Bow London UK</li>
+					<li>The Beehive - April 2024; Bromley-by-Bow London UK</li>
 				</ul>
 
 				<h2>
@@ -89,18 +87,18 @@ const Gigs = (): JSX.Element => {
 				</h2>
 				<ul className='gigsUl'>
 					<li>
-						St. Moritz Club - December 2023; Soho London, UK (Come
+						St. Moritz Club - December 2023; Soho London UK (Come
 						Back Rocky; EP Release Party)
 					</li>
-					<li>Ram Jam Records - November 2023, Kingston, UK</li>
-					<li>The Oval Tavern - September 2023; East Croydon, UK</li>
-					<li>New Cross Inn - June 2023; London, UK</li>
+					<li>Ram Jam Records - November 2023; Kingston UK</li>
+					<li>The Oval Tavern - September 2023; East Croydon UK</li>
+					<li>New Cross Inn - June 2023; London UK</li>
 					<li>
-						The Fiddler`s Elbow - April 2023; London, UK (Camden
+						The Fiddler`s Elbow - April 2023; London UK (Camden
 						Rocks)
 					</li>
-					<li>New Cross Inn - January 2023; London, UK</li>
-					<li>Hope &amp; Anchor - January 2023; London, UK</li>
+					<li>New Cross Inn - January 2023; London UK</li>
+					<li>Hope &amp; Anchor - January 2023; London UK</li>
 				</ul>
 
 				<h2>
@@ -108,17 +106,17 @@ const Gigs = (): JSX.Element => {
 					2022
 				</h2>
 				<ul className='gigsUl'>
-					<li>The Black Heart - October 2022; London, UK</li>
+					<li>The Black Heart - October 2022; London UK</li>
 					<li>
-						The Queen Adelaide - September 2022; Epsom, UK (Charity
+						The Queen Adelaide - September 2022; Epsom UK (Charity
 						Event; Ukraine Fundraiser)
 					</li>
 					<li>
-						The Kings Arms - April 2022; Dorking, UK (Charity Event;
+						The Kings Arms - April 2022; Dorking UK (Charity Event;
 						Dorking Westival)
 					</li>
 					<li>
-						The Fiddler`s Elbow - April 2022; London, UK (Camden
+						The Fiddler`s Elbow - April 2022; London UK (Camden
 						Rocks)
 					</li>
 				</ul>
@@ -129,19 +127,19 @@ const Gigs = (): JSX.Element => {
 				</h2>
 				<ul className='gigsUl'>
 					<li>
-						The Star - Hallowe`en 2021; Dorking, UK (Charity Event;
+						The Star - Hallowe`en 2021; Dorking UK (Charity Event;
 						Dorking Westival)
 					</li>
 				</ul>
 
 				<h2>Early Daze</h2>
 				<ul className='gigsUl'>
-					<li>The Dublin Castle - London, UK</li>
-					<li>The Phoenix - London, UK</li>
-					<li>West 14 - London, UK </li>
-					<li>The Betsey Trotwood - London, UK</li>
-					<li>The Louisiana - Bristol, UK</li>
-					<li>The Fleece - Bristol, UK</li>
+					<li>The Dublin Castle - London UK</li>
+					<li>The Phoenix - London UK</li>
+					<li>West 14 - London UK </li>
+					<li>The Betsey Trotwood - London UK</li>
+					<li>The Louisiana - Bristol UK</li>
+					<li>The Fleece - Bristol UK</li>
 				</ul>
 			</div>
 			<Footer />
