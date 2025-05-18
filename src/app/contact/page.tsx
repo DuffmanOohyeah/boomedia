@@ -1,5 +1,5 @@
 'use client';
-import { JSX, useState } from 'react';
+import { JSX, useState, useRef } from 'react';
 import Header from '@/components/Header';
 import { FaCommentDots } from 'react-icons/fa';
 import { ContactCssProps, ContactFormProps } from '@/utils/types';
@@ -28,16 +28,19 @@ const getFormAction = ({ name, email, message }: ContactFormProps): string => {
 };
 
 const Contact = (): JSX.Element => {
-	const [name, setName] = useState<string>('');
-	const [email, setEmail] = useState<string>('');
-	const [message, setMessage] = useState<string>('');
-	/*const [, setStatus] = useState<string>('');
-	const [, setError] = useState<string>('');*/
+	const inpName = useRef<HTMLInputElement>(null);
+	const inpEmail = useRef<HTMLInputElement>(null);
+	const inpMessage = useRef<HTMLTextAreaElement>(null);
+
+	/* const [, setStatus] = useState<string>('');
+	const [, setError] = useState<string>(''); */
+
 	const formArgs: ContactFormProps = {
-		name: name,
-		email: email,
-		message: message,
+		name: '',
+		email: '',
+		message: '',
 	};
+	const [formValues, setFormValues] = useState<ContactFormProps>(formArgs); // set default
 
 	/*const handleFormSubmit = async (event: { preventDefault: () => void; target: unknown; }) => {
 		event.preventDefault();
@@ -95,17 +98,21 @@ const Contact = (): JSX.Element => {
 						id='name'
 						type='text'
 						size={40}
+						ref={inpName}
 						className={`${css.input} ${
-							name.trim().length === 0
+							!formValues.name.trim().length
 								? 'border-(--color-red-light)'
 								: ''
 						}`}
-						defaultValue={name}
+						defaultValue={formValues.name}
 						onChange={(evt) => {
-							setName(evt.target.value.trim());
+							setFormValues({
+								...formValues,
+								name: evt.target.value.trim(),
+							});
 						}}
 					/>
-					{!name ? (
+					{!formValues.name ? (
 						<>
 							<br />
 							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-(--color-red-light) text-right text-sm'>
@@ -123,18 +130,22 @@ const Contact = (): JSX.Element => {
 						id='email'
 						type='text'
 						size={40}
+						ref={inpEmail}
 						className={`${css.input} ${
-							isEmailValid(email)
+							isEmailValid(formValues.email)
 								? ''
 								: 'border-(--color-red-light)'
 						}`}
-						defaultValue={email}
+						defaultValue={formValues.email}
 						onChange={(evt) => {
 							const _email: string = evt.target.value.trim();
-							setEmail(isEmailValid(_email) ? _email : '');
+							setFormValues({
+								...formValues,
+								email: _email,
+							});
 						}}
 					/>
-					{!email ? (
+					{!isEmailValid(formValues.email) ? (
 						<>
 							<br />
 							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-(--color-red-light) text-right text-sm'>
@@ -155,17 +166,21 @@ const Contact = (): JSX.Element => {
 						id='message'
 						cols={44}
 						rows={5}
+						ref={inpMessage}
 						className={`${css.input} ${
-							message.trim().length === 0
+							!formValues.message.trim().length
 								? 'border-(--color-red-light)'
 								: ''
 						}`}
-						defaultValue={message}
+						defaultValue={formValues.message}
 						onChange={(evt) => {
-							setMessage(evt.target.value.trim());
+							setFormValues({
+								...formValues,
+								message: evt.target.value.trim(),
+							});
 						}}
 					></textarea>
-					{!message && (
+					{!formValues.message && (
 						<>
 							<br />
 							<div className='max-w-[90%] md:max-w-[85%] lg:max-w-[88%] xl:max-w-[80%] 2xl:max-w-[70%] text-(--color-red-light) text-right text-sm'>
@@ -178,7 +193,13 @@ const Contact = (): JSX.Element => {
 						<button
 							type='submit'
 							className={css.button}
-							disabled={name && email && message ? false : true}
+							disabled={
+								formValues.name &&
+								isEmailValid(formValues.email) &&
+								formValues.message
+									? false
+									: true
+							}
 						>
 							Send It
 						</button>
