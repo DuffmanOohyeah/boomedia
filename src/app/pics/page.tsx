@@ -26,6 +26,30 @@ const images: ReactImageGalleryItem[] = [
 		...galleryClass,
 	},
 	{
+		original: '/dan_reigate_0625_ii.jpg',
+		description: 'Dan at Reigate',
+		thumbnail: '/dan_reigate_0625_ii.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/john_reigate_0625_ii.jpg',
+		description: 'John at Reigate',
+		thumbnail: '/john_reigate_0625_ii.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/billy_reigate_0625_ii.jpg',
+		description: 'Billy at Reigate',
+		thumbnail: '/billy_reigate_0625_ii.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/boomer_reigate_0625_ii.jpg',
+		description: 'Boomer at Reigate',
+		thumbnail: '/boomer_reigate_0625_ii.jpg',
+		...galleryClass,
+	},
+	{
 		original: '/newMusic_reigate_0625.jpg',
 		description: 'New Music Nights Poster',
 		thumbnail: '/newMusic_reigate_0625.jpg',
