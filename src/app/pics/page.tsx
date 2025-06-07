@@ -20,6 +20,48 @@ const galleryClass: GalleryClassProps = {
 
 const images: ReactImageGalleryItem[] = [
 	{
+		original: '/frontline_reigate_0625.jpg',
+		description: 'The frontline',
+		thumbnail: '/frontline_reigate_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/newMusic_reigate_0625.jpg',
+		description: 'New Music Nights Poster',
+		thumbnail: '/newMusic_reigate_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/powerhouse_0625.jpg',
+		description: 'Rehearsal teachings',
+		thumbnail: '/powerhouse_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/billy_reigate_0625.jpg',
+		description: 'Billy at Reigate',
+		thumbnail: '/billy_reigate_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/dan_reigate_0625.jpg',
+		description: 'Dan at Reigate',
+		thumbnail: '/dan_reigate_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/john_reigate_0625.jpg',
+		description: 'John at Reigate',
+		thumbnail: '/john_reigate_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/boomer_reigate_0625.jpg',
+		description: 'Boomer at Reigate',
+		thumbnail: '/boomer_reigate_0625.jpg',
+		...galleryClass,
+	},
+	{
 		original: '/billy1.jpg',
 		description: 'Sing on Billy',
 		thumbnail: '/billy1.jpg',

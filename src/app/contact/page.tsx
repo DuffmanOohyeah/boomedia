@@ -2,7 +2,11 @@
 import { JSX, useState, useRef } from 'react';
 import Header from '@/components/Header';
 import { FaCommentDots } from 'react-icons/fa';
-import { ContactCssProps, ContactFormProps } from '@/utils/types';
+import {
+	ContactCssProps,
+	ContactFormProps,
+	HandleContactChangeProps,
+} from '@/utils/types';
 import { isEmailValid } from '@/utils/isEmailValid';
 import Footer from '@/components/Footer';
 
@@ -41,6 +45,15 @@ const Contact = (): JSX.Element => {
 		message: '',
 	};
 	const [formValues, setFormValues] = useState<ContactFormProps>(formArgs); // set default
+
+	const handleChange = (evt: HandleContactChangeProps): void => {
+		const {
+			target: { id, value },
+		} = evt;
+		// setFormValues((prevState) => ({ ...prevState, [id]: value.trim() }));
+		setFormValues({ ...formValues, [id]: value.trim() });
+		// console.log('id/value:', `${id}/${value}`);
+	};
 
 	/*const handleFormSubmit = async (event: { preventDefault: () => void; target: unknown; }) => {
 		event.preventDefault();
@@ -105,12 +118,7 @@ const Contact = (): JSX.Element => {
 								: ''
 						}`}
 						defaultValue={formValues.name}
-						onChange={(evt) => {
-							setFormValues({
-								...formValues,
-								name: evt.target.value.trim(),
-							});
-						}}
+						onChange={handleChange}
 					/>
 					{!formValues.name ? (
 						<>
@@ -137,13 +145,7 @@ const Contact = (): JSX.Element => {
 								: 'border-(--color-red-light)'
 						}`}
 						defaultValue={formValues.email}
-						onChange={(evt) => {
-							const _email: string = evt.target.value.trim();
-							setFormValues({
-								...formValues,
-								email: _email,
-							});
-						}}
+						onChange={handleChange}
 					/>
 					{!isEmailValid(formValues.email) ? (
 						<>
@@ -173,12 +175,7 @@ const Contact = (): JSX.Element => {
 								: ''
 						}`}
 						defaultValue={formValues.message}
-						onChange={(evt) => {
-							setFormValues({
-								...formValues,
-								message: evt.target.value.trim(),
-							});
-						}}
+						onChange={handleChange}
 					></textarea>
 					{!formValues.message && (
 						<>

@@ -65,6 +65,13 @@ export interface EmbedAudioProps {
 	dir: string;
 }
 
+export interface FbVideoProps {
+	link: string;
+	label: string;
+	height?: number;
+	width: number;
+}
+
 export interface ContactFormProps {
 	name: string;
 	email: string;
@@ -89,4 +96,8 @@ export interface NavBlockCssProps {
 
 export interface StickyCssProps extends SvgProp {
 	sticky: string;
+}
+
+export interface HandleContactChangeProps {
+	target: { id: string; value: string };
 }

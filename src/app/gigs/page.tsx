@@ -92,6 +92,9 @@ const Gigs = (): JSX.Element => {
 					</li>
 					<li>Ram Jam Records - November 2023; Kingston UK</li>
 					<li>The Oval Tavern - September 2023; East Croydon UK</li>
+					<li className='line-through'>
+						Venture Inn - August 2023; Reigate, UK
+					</li>
 					<li>New Cross Inn - June 2023; London UK</li>
 					<li>
 						The Fiddler`s Elbow - April 2023; London UK (Camden

@@ -1,7 +1,19 @@
 'use client';
 import { JSX } from 'react';
-import { EmbedVideoProps } from '@/utils/types';
+import { EmbedVideoProps, FbVideoProps } from '@/utils/types';
 import YouTube, { YouTubeProps } from 'react-youtube';
+
+const fbVideoAtts = (): FbVideoProps[] => {
+	const atts: FbVideoProps[] = [
+		{
+			link: 'https://www.facebook.com/reel/1991144818086567/',
+			label: 'New Music Nights, Reigate - June `25',
+			height: 476,
+			width: 267,
+		},
+	];
+	return atts;
+};
 
 const videoAtts = (): EmbedVideoProps[] => {
 	const atts: EmbedVideoProps[] = [
@@ -32,5 +44,5 @@ const EmbedVideo = ({ id, h = 315, w = 560 }: EmbedVideoProps): JSX.Element => {
 	return <YouTube videoId={id} loading='lazy' opts={opts} />;
 };
 
-export { videoAtts };
+export { videoAtts, fbVideoAtts };
 export default EmbedVideo;

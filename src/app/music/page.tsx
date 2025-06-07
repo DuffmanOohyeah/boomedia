@@ -1,11 +1,16 @@
 'use client';
 import { JSX, useState } from 'react';
 import Header from '@/components/Header';
-import { FaMusic, FaYoutube, FaSoundcloud } from 'react-icons/fa';
-import { EmbedAudioProps, EmbedVideoProps, MusicCssProps } from '@/utils/types';
+import { FaMusic, FaYoutube, FaSoundcloud, FaFacebook } from 'react-icons/fa';
+import {
+	EmbedAudioProps,
+	EmbedVideoProps,
+	MusicCssProps,
+	FbVideoProps,
+} from '@/utils/types';
 import Modal from 'react-modal';
 import EmbedAudio, { audioAtts } from '@/components/EmbedAudio';
-import EmbedVideo, { videoAtts } from '@/components/EmbedVideo';
+import EmbedVideo, { videoAtts, fbVideoAtts } from '@/components/EmbedVideo';
 import CountUp from 'react-countup';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
@@ -31,6 +36,7 @@ const modalCss = {
 
 const videoArr: EmbedVideoProps[] = videoAtts();
 const audioArr: EmbedAudioProps[] = audioAtts();
+const fbVideos: FbVideoProps[] = fbVideoAtts();
 
 const Music = (): JSX.Element => {
 	const [showVideoTab, setShowVideoTab] = useState<boolean>(true);
@@ -49,6 +55,10 @@ const Music = (): JSX.Element => {
 	const [isModal9Open, setIsModal9Open] = useState<boolean>(false);
 	/* end: youtube modal vars */
 
+	/* start: fb modals */
+	const [isModal100Open, setIsModal100Open] = useState<boolean>(false);
+	/* end: fb modals */
+
 	/* start: soundcloud modal vars */
 	const [isModal1000Open, setIsModal1000Open] = useState<boolean>(false);
 	const [isModal1001Open, setIsModal1001Open] = useState<boolean>(false);
@@ -66,7 +76,7 @@ const Music = (): JSX.Element => {
 	const isModalOpen = (idx: number): boolean => {
 		let rtnBln: boolean = false;
 		switch (idx) {
-			/*start: youtube modals */
+			/* start: youtube modals */
 			case 0:
 				rtnBln = isModal0Open;
 				break;
@@ -97,9 +107,15 @@ const Music = (): JSX.Element => {
 			case 9:
 				rtnBln = isModal9Open;
 				break;
-			/*end: youtube modals */
+			/* end: youtube modals */
 
-			/*start: soundcloud modals */
+			/* start: fb modals */
+			case 100:
+				rtnBln = isModal100Open;
+				break;
+			/* end: fb modals */
+
+			/* start: soundcloud modals */
 			case 1000:
 				rtnBln = isModal1000Open;
 				break;
@@ -133,7 +149,7 @@ const Music = (): JSX.Element => {
 			case 1010:
 				rtnBln = isModal1010Open;
 				break;
-			/*end: soundcloud modals */
+			/* end: soundcloud modals */
 		}
 		return rtnBln;
 	};
@@ -173,6 +189,12 @@ const Music = (): JSX.Element => {
 				setIsModal9Open(true);
 				break;
 			/* end: youtube modals */
+
+			/* start: fb modals */
+			case 100:
+				setIsModal100Open(true);
+				break;
+			/* end: fb modals */
 
 			/* start: soundcloud modals */
 			case 1000:
@@ -226,6 +248,10 @@ const Music = (): JSX.Element => {
 		setIsModal9Open(false);
 		/* end: youtube modals */
 
+		/* start: fb modals */
+		setIsModal100Open(false);
+		/* end: fb modals */
+
 		/* start: soundcloud modals */
 		setIsModal1000Open(false);
 		setIsModal1001Open(false);
@@ -274,7 +300,7 @@ const Music = (): JSX.Element => {
 						>
 							Video&nbsp;&nbsp;&nbsp;
 							<CountUp
-								end={videoArr.length}
+								end={videoArr.length + fbVideos.length}
 								duration={5}
 								// suffix=' files'
 								className={`rounded-[50%] border-[1px] p-[10px] m-[10px]`}
@@ -361,6 +387,51 @@ const Music = (): JSX.Element => {
 									);
 								}
 							)}
+
+							{fbVideos.map((obj: FbVideoProps, idx: number) => {
+								const { link, label, width, height } = obj;
+								let fbQueryString: string = `?href=${link}`;
+								if (height)
+									fbQueryString += `&height=${height}`;
+								fbQueryString += `&width=${width}`;
+								fbQueryString += '&show_text=0';
+								fbQueryString += '&t=0';
+
+								return (
+									<li className={css.li} key={idx}>
+										<Link
+											href='#'
+											className='link'
+											onClick={(evt) => {
+												evt.preventDefault();
+												openModal(idx + 100);
+											}}
+										>
+											<FaFacebook className={css.svg} />
+											&nbsp;
+											{label}
+										</Link>
+										<Modal
+											isOpen={isModalOpen(idx + 100)} // adding 100 for fb modals
+											onRequestClose={() => closeModals()}
+											style={modalCss}
+											contentLabel='Facebook video from Cruiser'
+										>
+											<iframe
+												src={`https://www.facebook.com/plugins/video.php${fbQueryString}`}
+												height={height}
+												width={width}
+												allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+												allowFullScreen
+												style={{
+													borderWidth: 0,
+													overflow: 'hidden',
+												}}
+											/>
+										</Modal>
+									</li>
+								);
+							})}
 						</ul>
 					</div>
 					<div
