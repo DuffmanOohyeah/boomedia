@@ -20,6 +20,30 @@ const galleryClass: GalleryClassProps = {
 
 const images: ReactImageGalleryItem[] = [
 	{
+		original: '/sjwv1_bath_0625.jpg',
+		description: 'Homecoming gig 1 (Bath)',
+		thumbnail: '/sjwv1_bath_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/sjwv2_bath_0625.jpg',
+		description: 'Homecoming gig 2 (Bath)',
+		thumbnail: '/sjwv2_bath_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/sjwv3_bath_0625.jpg',
+		description: 'Homecoming gig 3 (Bath)',
+		thumbnail: '/sjwv3_bath_0625.jpg',
+		...galleryClass,
+	},
+	{
+		original: '/sjwv4_bath_0625.jpg',
+		description: 'St. James Wine Vaults Poster (Bath)',
+		thumbnail: '/sjwv4_bath_0625.jpg',
+		...galleryClass,
+	},
+	{
 		original: '/frontline_reigate_0625.jpg',
 		description: 'The frontline',
 		thumbnail: '/frontline_reigate_0625.jpg',
