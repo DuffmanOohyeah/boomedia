@@ -1,7 +1,14 @@
 'use client';
 import { JSX, useState } from 'react';
 import Header from '@/components/Header';
-import { FaMusic, FaYoutube, FaSoundcloud, FaFacebook } from 'react-icons/fa';
+import {
+	FaMusic,
+	FaYoutube,
+	FaSoundcloud,
+	FaFacebook,
+	FaRegFileVideo,
+	FaRegFileAudio,
+} from 'react-icons/fa';
 import {
 	EmbedAudioProps,
 	EmbedVideoProps,
@@ -298,7 +305,8 @@ const Music = (): JSX.Element => {
 								setShowAudioTab(false);
 							}}
 						>
-							Video&nbsp;&nbsp;&nbsp;
+							<FaRegFileVideo className={css.svg} />
+							&nbsp;&nbsp;&nbsp;Video&nbsp;&nbsp;&nbsp;
 							<CountUp
 								end={videoArr.length + fbVideos.length}
 								duration={5}
@@ -327,7 +335,8 @@ const Music = (): JSX.Element => {
 								setShowAudioTab(true);
 							}}
 						>
-							Audio&nbsp;&nbsp;&nbsp;
+							<FaRegFileAudio className={css.svg} />
+							&nbsp;&nbsp;&nbsp;Audio&nbsp;&nbsp;&nbsp;
 							<CountUp
 								end={audioArr.length}
 								duration={5}
