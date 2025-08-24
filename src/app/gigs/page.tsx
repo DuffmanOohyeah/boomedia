@@ -55,7 +55,7 @@ const Gigs = (): JSX.Element => {
 					2025
 				</h2>
 				<ul className='gigsUl'>
-					<li>The Beehive - July 2025; Bromley-by-Bow London UK</li>
+					<li>The Beehive - July 2025; Bromley-by-Bow London UK (Acoustic Set)</li>
 					<li>St James Wine Vaults - June 2025; Bath UK</li>
 					<li>Priory Football Club - June 2025; Reigate UK</li>
 					<li className='line-through'>
