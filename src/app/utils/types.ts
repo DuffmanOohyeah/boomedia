@@ -101,3 +101,8 @@ export interface StickyCssProps extends SvgProp {
 export interface HandleContactChangeProps {
 	target: { id: string; value: string };
 }
+
+export interface NavLinksProps {
+	href: string;
+	label: string | number;
+}
