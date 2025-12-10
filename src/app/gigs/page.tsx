@@ -13,7 +13,7 @@ const navLinks: NavLinksProps[] = [
 	{ href: '#year23', label: 2023 },
 	{ href: '#year22', label: 2022 },
 	{ href: '#year21', label: 2021 },
-	{ href: '#eDaze', label: 'eDaze' },
+	{ href: '#eDaze', label: 'Early Daze' },
 ];
 
 const css: GigCssProps = { h1Svg: 'align-middle inline-block mr-[7px]' };
