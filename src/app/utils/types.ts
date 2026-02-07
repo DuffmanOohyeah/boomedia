@@ -106,3 +106,14 @@ export interface NavLinksProps {
 	href: string;
 	label: string | number;
 }
+
+export interface ListingsYear {
+	year: number | string;
+}
+
+export interface ListingsProps extends ListingsYear {
+	venue: string;
+	month?: string;
+	location: string;
+	notes?: string;
+}
