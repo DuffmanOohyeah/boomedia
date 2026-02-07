@@ -51,6 +51,7 @@ const Gigs = (): JSX.Element => {
 				<a id='year26' />
 				<h2>2026</h2>
 				<ul className='gigsUl'>
+					<li>TBA - May 2026; Bath UK</li>
 					<li>New Cross Inn - January 2026; London UK</li>
 				</ul>
 
