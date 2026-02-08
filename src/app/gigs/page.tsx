@@ -80,6 +80,7 @@ const GigListings = (props: ListingsYear): JSX.Element => {
 			venue: 'East Street Tap',
 			month: 'April',
 			location: 'Brighton UK',
+			strike: true,
 		},
 		{
 			year: 2025,
@@ -137,6 +138,7 @@ const GigListings = (props: ListingsYear): JSX.Element => {
 			venue: 'Venture Inn',
 			month: 'August 2023',
 			location: 'Reigate, UK',
+			strike: true,
 		},
 		{
 			year: 2023,
@@ -232,18 +234,17 @@ const GigListings = (props: ListingsYear): JSX.Element => {
 	return (
 		<ul className='gigsUl'>
 			{matchedListings.map((obj, idx) => {
-				const { year: objYear, venue, month, location, notes } = obj;
+				const {
+					year: objYear,
+					venue,
+					month,
+					location,
+					notes,
+					strike = false,
+				} = obj;
 
 				return (
-					<li
-						key={idx}
-						className={
-							(objYear == 2025 && venue === 'East Street Tap') ||
-							(objYear == 2023 && venue === 'Venture Inn')
-								? 'line-through'
-								: ''
-						}
-					>
+					<li key={idx} className={strike ? 'line-through' : ''}>
 						{venue} - {month}{' '}
 						{objYear == 'eDaze' ? null : `${year};`} {location}{' '}
 						{notes}

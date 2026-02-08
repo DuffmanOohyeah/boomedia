@@ -116,4 +116,5 @@ export interface ListingsProps extends ListingsYear {
 	month?: string;
 	location: string;
 	notes?: string;
+	strike?: boolean;
 }
