@@ -46,8 +46,14 @@ const GigListings = (props: ListingsYear): JSX.Element => {
 	const listings: ListingsProps[] = [
 		{
 			year: 2026,
-			venue: 'TBA',
-			month: 'May',
+			venue: 'Amersham Arms',
+			month: 'July',
+			location: 'New Cross London UK',
+		},
+		{
+			year: 2026,
+			venue: 'St James Wine Vaults',
+			month: 'June',
 			location: 'Bath UK',
 		},
 		{
