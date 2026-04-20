@@ -49,12 +49,18 @@ const GigListings = (props: ListingsYear): JSX.Element => {
 			venue: 'Amersham Arms',
 			month: 'July',
 			location: 'New Cross London UK',
-		},
+		},		
 		{
 			year: 2026,
 			venue: 'St James Wine Vaults',
 			month: 'June',
 			location: 'Bath UK',
+		},
+		{
+			year: 2026,
+			venue: 'Priory Football Club',
+			month: 'June',
+			location: 'Reigate UK',
 		},
 		{
 			year: 2026,
