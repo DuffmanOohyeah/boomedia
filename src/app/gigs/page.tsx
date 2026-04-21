@@ -49,6 +49,7 @@ const GigListings = (props: ListingsYear): JSX.Element => {
 			venue: 'Amersham Arms',
 			month: 'July',
 			location: 'New Cross London UK',
+			strike: true,
 		},		
 		{
 			year: 2026,

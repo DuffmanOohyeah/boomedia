@@ -24,7 +24,8 @@ const audioAtts = (): EmbedAudioProps[] => {
 	return atts;
 };
 
-const EmbedAudio = ({ id, label, dir }: EmbedAudioProps): JSX.Element => {
+const EmbedAudio = (props: EmbedAudioProps): JSX.Element => {
+	const { id, label, dir } = props;
 	const soundcloudUrl: string =
 		'https://soundcloud.com/simon-spearman-743864396/';
 	let frameSrc: string = 'https://w.soundcloud.com/player/';
