@@ -1,4 +1,4 @@
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import { FaRegCopyright } from 'react-icons/fa';
 import { FooterCssProps } from '@/utils/types';
 

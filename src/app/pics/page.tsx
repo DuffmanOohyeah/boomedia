@@ -1,5 +1,5 @@
 'use client';
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import Header from '@/components/Header';
 import { GalleryClassProps, PicCssProps } from '@/utils/types';
 import { FaPhotoVideo } from 'react-icons/fa';

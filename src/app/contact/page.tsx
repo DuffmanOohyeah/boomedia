@@ -1,5 +1,5 @@
 'use client';
-import { JSX, useState, useRef } from 'react';
+import React, { JSX, useState, useRef } from 'react';
 import Header from '@/components/Header';
 import { FaCommentDots } from 'react-icons/fa';
 import {

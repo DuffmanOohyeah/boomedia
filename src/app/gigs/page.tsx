@@ -1,5 +1,5 @@
 'use client';
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import Header from '@/components/Header';
 import { FaClipboardList } from 'react-icons/fa';
 import {
@@ -49,7 +49,6 @@ const GigListings = (props: ListingsYear): JSX.Element => {
 			venue: 'Amersham Arms',
 			month: 'July',
 			location: 'New Cross London UK',
-			strike: true,
 		},		
 		{
 			year: 2026,

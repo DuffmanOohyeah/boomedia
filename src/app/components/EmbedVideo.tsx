@@ -1,5 +1,5 @@
 'use client';
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import { EmbedVideoProps, FbVideoProps } from '@/utils/types';
 import YouTube, { YouTubeProps } from 'react-youtube';
 

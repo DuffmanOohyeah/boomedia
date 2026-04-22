@@ -1,5 +1,5 @@
 'use client';
-import { JSX, useEffect, useState } from 'react';
+import React, { JSX, useEffect, useState } from 'react';
 import { Events } from 'react-scroll';
 import { FaBars } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';

@@ -1,5 +1,5 @@
 import { HeaderCssProps, NavBlockCssProps } from '@/utils/types';
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import Link from 'next/link';
 import {
 	FaClipboardList,
