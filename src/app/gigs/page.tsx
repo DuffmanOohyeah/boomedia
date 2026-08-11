@@ -10,6 +10,7 @@ import {
 } from '@/utils/types';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import { FcCancel } from 'react-icons/fc';
 
 const navLinks: NavLinksProps[] = [
     { href: '#year26', label: 2026 },
@@ -257,11 +258,16 @@ const GigListings = (props: ListingsYear): JSX.Element => {
                     strike = false,
                 } = obj;
 
+                {
+                    /*<li key={idx} className={strike ? 'line-through' : ''}>*/
+                }
+
                 return (
-                    <li key={idx} className={strike ? 'line-through' : ''}>
+                    <li key={idx} className={strike ? 'cancelled-gig' : ''}>
                         {venue} - {month}{' '}
                         {objYear == 'eDaze' ? null : `${year};`} {location}{' '}
                         {notes}
+                        {strike && <FcCancel />}
                     </li>
                 );
             })}
