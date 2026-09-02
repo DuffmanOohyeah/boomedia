@@ -490,4 +490,5 @@ const Music = (): JSX.Element => {
     );
 };
 
+export { modalCss };
 export default Music;

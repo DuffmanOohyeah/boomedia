@@ -214,7 +214,7 @@ const images: ReactImageGalleryItem[] = [
     },
     {
         original: '/lineup1.jpg',
-        description: 'Cheesy vinal album cover?',
+        description: 'Cheesy vinyl album cover?',
         thumbnail: '/lineup1.jpg',
         ...galleryClass,
     },

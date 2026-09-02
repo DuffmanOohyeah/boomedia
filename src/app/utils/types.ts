@@ -63,6 +63,8 @@ export type EmbedAudioProps = {
     id: string;
     label: string;
     dir: string;
+    autoPlay?: boolean;
+    height?: number;
 };
 
 export type FbVideoProps = {
