@@ -46,7 +46,7 @@ const EPK = (): JSX.Element => {
                 <div className="epkHeroHdr">
                     <h1 className="pt-50">
                         <FaBullhorn className={css.h1Svg} /> Cruiser ::
-                        Electronic Press Kit (EPK)
+                        Electronic Press Kit
                     </h1>
                     <br />
                 </div>
