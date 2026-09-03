@@ -7,13 +7,13 @@ import Link from 'next/link';
 import {
     FaRegHandPeace,
     FaRegEnvelope,
-    FaAngleDoubleRight,
     FaFacebook,
     FaBandcamp,
     FaInstagram,
     FaYoutube,
     FaSpotify,
     FaItunes,
+    FaMusic,
 } from 'react-icons/fa';
 import Modal from 'react-modal';
 import { modalCss } from '../music/page';
@@ -43,27 +43,32 @@ const EPK = (): JSX.Element => {
         <div id="epkBg" className="pageBg">
             <Header />
             <div className="epkCard w-[90%] md:w-[70%] lg:w-[50%] p-5">
-                <div className="epkHeroHdr">
-                    <h1 className="pt-50">
-                        <FaBullhorn className={css.h1Svg} /> Cruiser ::
-                        Electronic Press Kit
-                    </h1>
-                    <br />
+                <div className="grid rows-2">
+                    <div className="epkHeroHdr">
+                        <h1 className="pt-50">
+                            <FaBullhorn className={css.h1Svg} /> Cruiser ::
+                            Electronic Press Kit
+                        </h1>
+                    </div>
+                    <div className="pb-1 pt-[clamp(0rem,5vh,2rem)] md:pt-0 lg:pt-0">
+                        Power Pop-Punk Rock • Four-Piece • Original Music •
+                        South West London
+                    </div>
                 </div>
                 <h2>Bio</h2>
                 <div>
-                    <FaAngleDoubleRight className={css.svg} /> South West
-                    London`s premier power pop-punk four-piece. Delivering
-                    sun-soaked, high-octane punk-rock tunes packed with massive
-                    melodic hooks - think punk-rock`s answer to the Beach Boys.
+                    <FaMusic className={css.svg} /> South West London`s premier
+                    power pop-punk four-piece. Delivering sun-soaked,
+                    high-octane punk-rock tunes packed with massive melodic
+                    hooks; think punk-rock`s answer to the Beach Boys.
                     <br />
                     <br />
-                    <FaAngleDoubleRight className={css.svg} /> Cruiser have
-                    released two albums, and three EPs. Their first album
-                    generated quite a stir on the Bristol music scene and saw
-                    Cruiser gain a reputation as a band who could entertain with
-                    driving pop-punk, the eponymous album gained rave reviews in
-                    the local press.
+                    <FaMusic className={css.svg} /> Cruiser have released two
+                    albums, and three EPs. Their first album generated quite a
+                    stir on the Bristol music scene and saw Cruiser gain a
+                    reputation as a band who could entertain with driving
+                    pop-punk, the eponymous album gained rave reviews in the
+                    local press.
                 </div>
                 <br />
                 <h2>Music</h2>
@@ -195,7 +200,7 @@ const EPK = (): JSX.Element => {
                     ></iframe>
                 </div>
                 <br />
-                <h2>Testimonials</h2>
+                <h2>Press / Testimonials</h2>
                 <ul className="testimonialsUl gap-5">
                     <li className="pb-1">
                         <FaRegHandPeace className={css.svg} />
@@ -240,7 +245,7 @@ const EPK = (): JSX.Element => {
                     </li>
                 </ul>
                 <br />
-                <h2>Contact / Socials</h2>
+                <h2>Contact / Booking</h2>
                 <div className="grid grid-cols-3 gap-5">
                     <div className="col-span-3">
                         <FaRegEnvelope className={css.svg} />
